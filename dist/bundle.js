@@ -23431,7 +23431,7 @@ window.onload = function () {
         alert('Download Model Error');
     };
 
-    var modelFile = 'https://cdn.rawgit.com/mrdoob/three.js/dev/examples/models/mmd/miku/miku_v2.pmd';
+    var modelFile = 'https://efang4828.github.io/PagesTest/res/miku_v2.pmd';
     var vmdFiles = ['https://cdn.rawgit.com/mrdoob/three.js/dev/examples/models/mmd/vmds/wavefile_v2.vmd'];
 
     var helper = new THREE.MMDHelper();
