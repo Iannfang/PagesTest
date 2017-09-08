@@ -23298,7 +23298,7 @@ window.onload = function () {
         domElement.style.height = '100%';
 
         // get the media sources
-        MediaStreamTrack.getSources(function (sourceInfos) {
+        MediaDevices.enumerateDevices(function (sourceInfos) {
             // define getUserMedia() constraints
             var constraints = {
                 video: true,
