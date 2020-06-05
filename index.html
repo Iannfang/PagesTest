@@ -29,10 +29,9 @@
 	 }
 	 */
 	 
-		document.onclick = function(){
-			alert(11);
+		document.ontouchstart = function(){
+		alert("touch");
 			if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-			alert(22);
             // IOS 13
 				DeviceOrientationEvent.requestPermission()
 					.then(permissionState => {
@@ -44,8 +43,6 @@
 					.catch((err)=>{
 						alert(err);
 					});
-					
-					alert(33);
 			} 
 		}
     </script>	
