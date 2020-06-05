@@ -31,17 +31,18 @@
 	 
 		document.ontouchstart = function(){
 			alert(11);
-			if (typeof DeviceMotionEvent.requestPermission === 'function') {
+			if (typeof DeviceOrientationEvent.requestPermission === 'function') {
 			alert(22);
             // IOS 13
-				DeviceMotionEvent.requestPermission()
+				DeviceOrientationEvent.requestPermission()
 					.then(permissionState => {
+						alert(permissionState);
 						if (permissionState === 'granted') {
-							window.addEventListener('devicemotion',cb);
+							window.addEventListener('deviceorientation',(event)=>{});
 						}
 					})
 					.catch((err)=>{
-						errCb("用户未允许权限");
+						alert("用户未允许权限");
 					});
 					
 					alert(33);
