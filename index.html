@@ -29,30 +29,24 @@
 	 }
 	 */
 	 
-		function test() {
+		document.ontouchstart = function(){
+			alert(11);
 			if (typeof DeviceMotionEvent.requestPermission === 'function') {
-				DeviceMotionEvent.requestPermission().then((permissionState) => {
-					if (permissionState === 'granted') {
-						window.addEventListener('devicemotion', () => {});
-					}
-					else{
-						alert(permissionState);
-						var confirm = window.confirm('由于IOS系统需要手动获取访问动作与方向的权限，为了保证抽奖正常运行，请在访问提示中点击允许！');
-						confirm && test();
-					}
-				}).catch((error) => {
-					alert(error);
-					var confirm = window.confirm('由于IOS系统需要手动获取访问动作与方向的权限，为了保证抽奖正常运行，请在访问提示中点击允许！');
-					confirm && test();
-				})
-			} else {
-				  // 处理常规的非iOS 13+设备
-				console.log("处理常规的非iOS 13+设备")
-			}
+			alert(22);
+            // IOS 13
+				DeviceMotionEvent.requestPermission()
+					.then(permissionState => {
+						if (permissionState === 'granted') {
+							window.addEventListener('devicemotion',cb);
+						}
+					})
+					.catch((err)=>{
+						errCb("用户未允许权限");
+					});
+					
+					alert(33);
+			} 
 		}
-			
-		var confirm = window.confirm('由于IOS系统需要手动获取访问动作与方向的权限，为了保证抽奖正常运行，请在访问提示中点击允许！');
-		confirm && test();
-    </script>
+    </script>	
 </html>
 
